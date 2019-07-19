@@ -64,8 +64,28 @@ const getProjects = (req, res) =>
       }),
     );
 
+const updateProject = (req, res) => {
+  const { id } = req.params;
+  const { name, description, completed } = req.body;
+
+  Model.updateProject(id, { name, description, completed })
+    .then(project =>
+      res.status(200).json({
+        status: 200,
+        data: project,
+      }),
+    )
+    .catch(() =>
+      res.status(500).json({
+        status: 500,
+        message: 'Cannot update project.',
+      }),
+    );
+};
+
 module.exports = {
   addProjects,
   getProjectById,
   getProjects,
+  updateProject,
 };

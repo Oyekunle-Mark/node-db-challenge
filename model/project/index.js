@@ -12,7 +12,14 @@ const addProjects = async project => {
   return getProject(id);
 };
 
+const updateProject = (id, project) =>
+  db('projects')
+    .where({ id })
+    .update(project)
+    .then(() => getProject(id));
+
 module.exports = {
   addProjects,
   getProject,
+  updateProject,
 };
