@@ -1,10 +1,16 @@
 const router = require('express').Router();
 const handlers = require('./handlers');
+const middleware = require('../../middleware/project');
 
-router.post('/', handlers.addProjects);
-router.get('/:id', handlers.getProjectById);
+router.post('/', middleware.validateProjectBody, handlers.addProjects);
+router.get('/:id', middleware.validateId, handlers.getProjectById);
 router.get('/', handlers.getProjects);
-router.put('/:id', handlers.updateProject);
-router.delete('/:id', handlers.removeProject);
+router.put(
+  '/:id',
+  middleware.validateProjectBody,
+  middleware.validateId,
+  handlers.updateProject,
+);
+router.delete('/:id', middleware.validateId, handlers.removeProject);
 
 module.exports = router;
