@@ -70,9 +70,28 @@ const updateAction = (req, res) => {
     );
 };
 
+const removeAction = (req, res) => {
+  const { id } = req.params;
+
+  Model.removeAction(id)
+    .then(action =>
+      res.status(200).json({
+        status: 200,
+        data: `${action} record deleted.`,
+      }),
+    )
+    .catch(() =>
+      res.status(500).json({
+        status: 500,
+        message: 'Cannot delete action.',
+      }),
+    );
+};
+
 module.exports = {
   addActions,
   getActions,
   getProjectActions,
   updateAction,
+  removeAction,
 };

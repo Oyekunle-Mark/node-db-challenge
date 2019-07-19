@@ -23,9 +23,15 @@ const updateAction = (id, action) =>
     .update(action)
     .then(() => getAction(id));
 
+const removeAction = id =>
+  db('actions')
+    .where({ id })
+    .del();
+
 module.exports = {
   addActions,
   getActionsById,
   getAction,
   updateAction,
+  removeAction,
 };
