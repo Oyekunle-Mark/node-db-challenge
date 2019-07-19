@@ -18,8 +18,14 @@ const updateProject = (id, project) =>
     .update(project)
     .then(() => getProject(id));
 
+const removeProject = id =>
+  db('projects')
+    .where({ id })
+    .del();
+
 module.exports = {
   addProjects,
   getProject,
   updateProject,
+  removeProject,
 };

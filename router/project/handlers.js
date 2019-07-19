@@ -83,9 +83,28 @@ const updateProject = (req, res) => {
     );
 };
 
+const removeProject = (req, res) => {
+  const { id } = req.params;
+
+  Model.removeProject(id)
+    .then(project =>
+      res.status(200).json({
+        status: 200,
+        data: `${project} project deleted.`,
+      }),
+    )
+    .catch(() =>
+      res.status(500).json({
+        status: 500,
+        message: 'Cannot delete project.',
+      }),
+    );
+};
+
 module.exports = {
   addProjects,
   getProjectById,
   getProjects,
   updateProject,
+  removeProject,
 };
