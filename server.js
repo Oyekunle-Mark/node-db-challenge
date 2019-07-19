@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 
 const server = express();
+const router = require('./router');
 
 server.use(express.json());
 server.use(logger('dev'));
@@ -12,5 +13,7 @@ server.get('/', (req, res) =>
     message: 'Welcome Chief. Use this API like it is yours.',
   }),
 );
+
+server.use('/api/projects', router);
 
 module.exports = server;

@@ -63,17 +63,17 @@ Follow these steps for completing your project.
   - [X] a name.
   - [X] a description.
   - [X] a flag that indicates if the project is complete or not.
-- [ ] An `action` belongs to only one project. An action has:
-  - [ ] a unique id.
-  - [ ] a description of what needs to be done.
-  - [ ] a notes column to add additional information.
-  - [ ] a flag that indicates if the action has been completed.
+- [X] An `action` belongs to only one project. An action has:
+  - [X] a unique id.
+  - [X] a description of what needs to be done.
+  - [X] a notes column to add additional information.
+  - [X] a flag that indicates if the action has been completed.
 
 Feel free to name the tables and fields anything you want. **Add relationships** as you see fit.
 
 ### Tasks
 
-- [ ] Build the database and tables using knex migrations. **Seeding is not needed**.
+- [X] Build the database and tables using knex migrations. **Seeding is not needed**.
 - [ ] Build the API with the following endpoints:
 
   - [ ] POST for adding projects.
