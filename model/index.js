@@ -3,7 +3,7 @@ const db = require('../data/dbConfig');
 const getProject = id => {
   const query = db('projects');
 
-  return id ? query.where({ id }) : query;
+  return id ? query.where({ id }).first() : query;
 };
 
 const addProjects = async project => {
@@ -24,7 +24,15 @@ const addActions = async action => {
   return getAction(id);
 };
 
+const getActionsById = id =>
+  db('actions as a')
+    .select('a.id', 'a.description', 'a.notes', 'a.completed')
+    .where({ project_id: id });
+
 module.exports = {
   addProjects,
   addActions,
+  getActionsById,
+  getProject,
+  getAction,
 };

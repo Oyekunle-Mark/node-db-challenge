@@ -36,7 +36,38 @@ const addActions = (req, res) => {
     );
 };
 
+const getProjectById = (req, res) => {
+  const { id } = req.params;
+
+  Model.getProject(id)
+    .then(project => {
+      Model.getActionsById(id)
+        .then(actions => {
+          const responseData = project;
+          responseData.actions = actions;
+
+          res.status(200).json({
+            status: 200,
+            data: responseData,
+          });
+        })
+        .catch(() =>
+          res.status(500).json({
+            status: 500,
+            message: 'Cannot get this project actions.',
+          }),
+        );
+    })
+    .catch(() =>
+      res.status(500).json({
+        status: 500,
+        message: 'Cannot get project.',
+      }),
+    );
+};
+
 module.exports = {
   addProjects,
   addActions,
+  getProjectById,
 };
