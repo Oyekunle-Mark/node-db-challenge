@@ -14,7 +14,7 @@ exports.up = knex =>
       .inTable('projects')
       .onDelete('CASCADE')
       .onUpdate('CASCADE');
-    table.boolean('status').notNullable();
+    table.boolean('completed').notNullable();
   });
 
 exports.down = knex => knex.schema.dropTableIfExists('actions');

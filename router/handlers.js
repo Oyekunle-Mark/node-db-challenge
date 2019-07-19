@@ -1,9 +1,9 @@
 const Model = require('../model');
 
 const addProjects = (req, res) => {
-  const { name, description, status } = req.body;
+  const { name, description, completed } = req.body;
 
-  Model.addProjects({ name, description, status })
+  Model.addProjects({ name, description, completed })
     .then(project =>
       res.status(201).json({
         status: 201,
@@ -19,9 +19,9 @@ const addProjects = (req, res) => {
 };
 
 const addActions = (req, res) => {
-  const { description, notes, project_id, status } = req.body;
+  const { description, notes, project_id, completed } = req.body;
 
-  Model.addActions({ description, notes, project_id, status })
+  Model.addActions({ description, notes, project_id, completed })
     .then(action =>
       res.status(201).json({
         status: 201,
