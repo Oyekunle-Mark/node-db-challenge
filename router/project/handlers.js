@@ -48,7 +48,23 @@ const getProjectById = (req, res) => {
     );
 };
 
+const getProjects = (req, res) =>
+  Model.getProject()
+    .then(projects =>
+      res.status(200).json({
+        status: 200,
+        data: projects,
+      }),
+    )
+    .catch(() =>
+      res.status(500).json({
+        status: 500,
+        message: 'Cannot get projects.',
+      }),
+    );
+
 module.exports = {
   addProjects,
   getProjectById,
+  getProjects,
 };
