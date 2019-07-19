@@ -1,4 +1,4 @@
-const Model = require('../../model');
+const Model = require('../../model/action');
 
 const addActions = (req, res) => {
   const { description, notes, project_id, completed } = req.body;

@@ -1,16 +1,4 @@
-const db = require('../data/dbConfig');
-
-const getProject = id => {
-  const query = db('projects');
-
-  return id ? query.where({ id }).first() : query;
-};
-
-const addProjects = async project => {
-  const [id] = await db('projects').insert(project);
-
-  return getProject(id);
-};
+const db = require('../../data/dbConfig');
 
 const getAction = id => {
   const query = db('actions');
@@ -30,9 +18,7 @@ const getActionsById = id =>
     .where({ project_id: id });
 
 module.exports = {
-  addProjects,
   addActions,
   getActionsById,
-  getProject,
   getAction,
 };

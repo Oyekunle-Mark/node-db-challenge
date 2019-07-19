@@ -1,4 +1,5 @@
-const Model = require('../../model');
+const Model = require('../../model/project');
+const { getActionsById } = require('../../model/action');
 
 const addProjects = (req, res) => {
   const { name, description, completed } = req.body;
@@ -23,7 +24,7 @@ const getProjectById = (req, res) => {
 
   Model.getProject(id)
     .then(project => {
-      Model.getActionsById(id)
+      getActionsById(id)
         .then(actions => {
           const responseData = project;
           responseData.actions = actions;
