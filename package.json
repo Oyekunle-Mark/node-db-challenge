@@ -1,0 +1,26 @@
+{
+  "name": "project-manager",
+  "version": "1.0.0",
+  "description": "manages projects and actios",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oyekunle-Mark/node-db-challenge.git"
+  },
+  "keywords": [
+    "project",
+    "actions",
+    "node",
+    "knex",
+    "sqlite"
+  ],
+  "author": "oyekunle-mark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oyekunle-Mark/node-db-challenge/issues"
+  },
+  "homepage": "https://github.com/Oyekunle-Mark/node-db-challenge#readme"
+}
