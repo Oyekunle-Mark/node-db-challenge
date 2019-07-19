@@ -17,8 +17,15 @@ const getActionsById = id =>
     .select('a.id', 'a.description', 'a.notes', 'a.completed')
     .where({ project_id: id });
 
+const updateAction = (id, action) =>
+  db('actions')
+    .where({ id })
+    .update(action)
+    .then(() => getAction(id));
+
 module.exports = {
   addActions,
   getActionsById,
   getAction,
+  updateAction,
 };

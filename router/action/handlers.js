@@ -51,8 +51,28 @@ const getProjectActions = (req, res) => {
     );
 };
 
+const updateAction = (req, res) => {
+  const { id } = req.params;
+  const { description, notes, project_id, completed } = req.body;
+
+  Model.updateAction(id, { description, notes, project_id, completed })
+    .then(action =>
+      res.status(200).json({
+        status: 200,
+        data: action,
+      }),
+    )
+    .catch(() =>
+      res.status(500).json({
+        status: 500,
+        message: 'Cannot update action.',
+      }),
+    );
+};
+
 module.exports = {
   addActions,
   getActions,
   getProjectActions,
+  updateAction,
 };
