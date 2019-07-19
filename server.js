@@ -2,7 +2,8 @@ const express = require('express');
 const logger = require('morgan');
 
 const server = express();
-const router = require('./router');
+const projectRouter = require('./router/project');
+const actionRouter = require('./router/action');
 
 server.use(express.json());
 server.use(logger('dev'));
@@ -14,6 +15,7 @@ server.get('/', (req, res) =>
   }),
 );
 
-server.use('/api/projects', router);
+server.use('/api/projects', projectRouter);
+server.use('/api/actions', actionRouter);
 
 module.exports = server;
