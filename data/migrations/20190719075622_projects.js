@@ -6,7 +6,7 @@ exports.up = knex =>
       .notNullable()
       .unique();
     table.text('description').notNullable();
-    table.boolean('status');
+    table.boolean('status').notNullable();
   });
 
 exports.down = knex => knex.schema.dropTableIfExists('projects');
