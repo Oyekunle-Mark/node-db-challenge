@@ -3,7 +3,7 @@ const db = require('../../data/dbConfig');
 const getAction = id => {
   const query = db('actions');
 
-  return id ? query.where({ id }) : query;
+  return id ? query.where({ id }).first() : query;
 };
 
 const addActions = async action => {
