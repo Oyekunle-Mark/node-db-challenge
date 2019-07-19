@@ -13,8 +13,8 @@ const addActions = async action => {
 };
 
 const getActionsById = id =>
-  db('actions as a')
-    .select('a.id', 'a.description', 'a.notes', 'a.completed')
+  db('actions')
+    .select('id', 'description', 'notes', 'completed')
     .where({ project_id: id });
 
 const updateAction = (id, action) =>
