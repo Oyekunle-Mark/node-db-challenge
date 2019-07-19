@@ -18,6 +18,25 @@ const addProjects = (req, res) => {
     );
 };
 
+const addActions = (req, res) => {
+  const { description, notes, project_id, status } = req.body;
+
+  Model.addActions({ description, notes, project_id, status })
+    .then(action =>
+      res.status(201).json({
+        status: 201,
+        data: action,
+      }),
+    )
+    .catch(() =>
+      res.status(500).json({
+        status: 500,
+        message: 'Cannot add action.',
+      }),
+    );
+};
+
 module.exports = {
   addProjects,
+  addActions,
 };
